@@ -1,4 +1,4 @@
-name: Refresh profile experiments
+name: Refresh profile data
 
 on:
   workflow_dispatch:
@@ -9,165 +9,29 @@ permissions:
   contents: write
 
 concurrency:
-  group: profile-metrics
+  group: profile-data
   cancel-in-progress: true
 
 jobs:
-  metrics:
+  refresh:
     runs-on: ubuntu-latest
     steps:
-      - name: Coding habits
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/habits.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          config_timezone: Europe/Paris
-          plugin_habits: yes
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-          plugin_habits_charts_type: graph
-          plugin_habits_days: 30
-          plugin_habits_languages_limit: 0
+      - name: Check out profile repository
+        uses: actions/checkout@v4
 
-      - name: Lines of code history
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/lines.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          plugin_lines: yes
-          plugin_lines_delay: 30
-          plugin_lines_sections: repositories, history
-          plugin_lines_repositories_limit: 4
-          plugin_lines_history_limit: 6
-
-      - name: Isometric contribution calendar
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/isocalendar.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
-
-      - name: GitHub Skyline
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/skyline.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          plugin_skyline: yes
-          plugin_skyline_year: 2025
-          plugin_skyline_quality: 1
-
-      - name: Random code snippet
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/code.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          plugin_code: yes
-          plugin_code_load: 400
-
-      - name: Achievements
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/achievements.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          plugin_achievements: yes
-          plugin_achievements_display: compact
-          plugin_achievements_threshold: X
-
-      - name: Comment reactions
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/reactions.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          plugin_reactions: yes
-          plugin_reactions_limit: 100
-          plugin_reactions_details: percentage
-
-      - name: Stars and topics
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/stars-and-topics.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          plugin_stars: yes
-          plugin_stars_limit: 4
-          plugin_topics: yes
-          plugin_topics_limit: 12
-
-      - name: People
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/people.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          plugin_people: yes
-          plugin_people_limit: 24
-          plugin_people_types: followers, following
-
-      - name: Recent activity
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/activity.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          plugin_activity: yes
-          plugin_activity_limit: 8
-          plugin_activity_days: 0
-          plugin_activity_filter: issue, pr, release, review, ref/create
-
-      - name: Fortune cookie
-        if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics/fortune.svg
-          token: NOT_NEEDED
-          user: Lea9250
-          base: ""
-          plugin_fortune: yes
-
-      # Requires a Google Maps API key stored as GOOGLE_MAP_TOKEN.
-      - name: Stargazer world map
-        if: ${{ env.GOOGLE_MAP_TOKEN != '' }}
-        uses: lowlighter/metrics@latest
+      - name: Build recent repository list
         env:
-          GOOGLE_MAP_TOKEN: ${{ secrets.GOOGLE_MAP_TOKEN }}
-        with:
-          filename: metrics/stargazers-worldmap.svg
-          token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          user: Lea9250
-          base: ""
-          plugin_stargazers: yes
-          plugin_stargazers_charts: no
-          plugin_stargazers_worldmap: yes
-          plugin_stargazers_worldmap_token: ${{ secrets.GOOGLE_MAP_TOKEN }}
-          plugin_stargazers_worldmap_sample: 200
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN || github.token }}
+          GITHUB_USER: Lea9250
+        run: python3 scripts/update_recent_repositories.py
 
-      # Account-dependent experiments (WakaTime, Steam, chess, AniList,
-      # music, Splatoon, and PoopMap) need their respective account IDs
-      # and/or API tokens before useful cards can be generated.
+      - name: Publish recent repository list
+        run: |
+          if git diff --quiet -- README.md; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Refresh recent repositories [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
