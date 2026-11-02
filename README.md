@@ -16,11 +16,12 @@ Backend (sometimes full stack against my will) and open-source developer since 2
 ### public contributions over the last 12 months
 
 <!-- recent-repositories:start -->
-- [OCSInventory-NG/OCSInventory-Server-Backend-Rework](https://github.com/OCSInventory-NG/OCSInventory-Server-Backend-Rework) · `Python/Django` · 128 commits · 25 PRs · 19 reviews
-- [OCSInventory-NG/OCSInventory-Server-Frontend-Rework](https://github.com/OCSInventory-NG/OCSInventory-Server-Frontend-Rework) · `Vue/JavaScript` · 83 commits · 8 PRs · 40 reviews
+- [OCSInventory-NG/OCSInventory-Server-Backend-Rework](https://github.com/OCSInventory-NG/OCSInventory-Server-Backend-Rework) · `Python/Django` · 130 commits · 25 PRs · 20 reviews
+- [OCSInventory-NG/OCSInventory-Server-Frontend-Rework](https://github.com/OCSInventory-NG/OCSInventory-Server-Frontend-Rework) · `Vue/JavaScript` · 84 commits · 8 PRs · 41 reviews
 - [OCSInventory-NG/OCSInventory-Server-Packages](https://github.com/OCSInventory-NG/OCSInventory-Server-Packages) · `Deb/RPM/Docker/Shell` · 45 commits · 6 PRs · 2 reviews
-- [OCSInventory-NG/OCSInventory-Agent-Rework](https://github.com/OCSInventory-NG/OCSInventory-Agent-Rework) · `Dart/Flutter` · 24 commits · 4 PRs · 7 reviews
+- [OCSInventory-NG/OCSInventory-Agent-Rework](https://github.com/OCSInventory-NG/OCSInventory-Agent-Rework) · `Dart/Flutter` · 25 commits · 4 PRs · 7 reviews
 - [OCSInventory-NG/OCSInventory-SNMP-Scanner](https://github.com/OCSInventory-NG/OCSInventory-SNMP-Scanner) · `Python` · 16 commits · 4 PRs · 1 review
+- [OCSInventory-NG/OCSInventory-rework-extensions](https://github.com/OCSInventory-NG/OCSInventory-rework-extensions) · 10 commits · 1 review
 - [OCSInventory-NG/Macosx-Packager](https://github.com/OCSInventory-NG/Macosx-Packager) · `Objective-C` · 3 commits · 1 PR
 - [Lea9250/Lea9250](https://github.com/Lea9250/Lea9250) · 3 commits
 - [OCSInventory-NG/OCSInventory-ocsreports](https://github.com/OCSInventory-NG/OCSInventory-ocsreports) · `PHP/JavaScript` · 1 commit · 2 PRs
@@ -30,5 +31,5 @@ Backend (sometimes full stack against my will) and open-source developer since 2
 - [OCSInventory-NG/OCSInventory-Loadtest-Rework](https://github.com/OCSInventory-NG/OCSInventory-Loadtest-Rework) · `Python` · 1 commit
 - [PluginsOCSInventory-NG/officepack](https://github.com/PluginsOCSInventory-NG/officepack) · `VBScript` · 1 commit
 
-<sub>Showing all 13 public repositories from 26 October 2025 through 26 October 2026; refreshed weekly.</sub>
+<sub>Showing all 14 public repositories from 2 November 2025 through 2 November 2026; refreshed weekly.</sub>
 <!-- recent-repositories:end -->
