@@ -16,10 +16,10 @@ Backend (sometimes full stack against my will) and open-source developer since 2
 ### public contributions over the last 12 months
 
 <!-- recent-repositories:start -->
-- [OCSInventory-NG/OCSInventory-Server-Backend-Rework](https://github.com/OCSInventory-NG/OCSInventory-Server-Backend-Rework) · `Python/Django` · 129 commits · 21 PRs · 21 reviews
-- [OCSInventory-NG/OCSInventory-Server-Frontend-Rework](https://github.com/OCSInventory-NG/OCSInventory-Server-Frontend-Rework) · `Vue/JavaScript` · 80 commits · 7 PRs · 38 reviews
+- [OCSInventory-NG/OCSInventory-Server-Backend-Rework](https://github.com/OCSInventory-NG/OCSInventory-Server-Backend-Rework) · `Python/Django` · 127 commits · 23 PRs · 20 reviews
+- [OCSInventory-NG/OCSInventory-Server-Frontend-Rework](https://github.com/OCSInventory-NG/OCSInventory-Server-Frontend-Rework) · `Vue/JavaScript` · 74 commits · 8 PRs · 32 reviews
 - [OCSInventory-NG/OCSInventory-Server-Packages](https://github.com/OCSInventory-NG/OCSInventory-Server-Packages) · `Deb/RPM/Docker/Shell` · 45 commits · 6 PRs · 2 reviews
-- [OCSInventory-NG/OCSInventory-Agent-Rework](https://github.com/OCSInventory-NG/OCSInventory-Agent-Rework) · `Dart/Flutter` · 25 commits · 4 PRs · 7 reviews
+- [OCSInventory-NG/OCSInventory-Agent-Rework](https://github.com/OCSInventory-NG/OCSInventory-Agent-Rework) · `Dart/Flutter` · 25 commits · 5 PRs · 7 reviews
 - [OCSInventory-NG/OCSInventory-SNMP-Scanner](https://github.com/OCSInventory-NG/OCSInventory-SNMP-Scanner) · `Python` · 16 commits · 4 PRs · 1 review
 - [OCSInventory-NG/OCSInventory-rework-extensions](https://github.com/OCSInventory-NG/OCSInventory-rework-extensions) · 10 commits · 1 review
 - [OCSInventory-NG/Macosx-Packager](https://github.com/OCSInventory-NG/Macosx-Packager) · `Objective-C` · 3 commits · 1 PR
@@ -31,5 +31,5 @@ Backend (sometimes full stack against my will) and open-source developer since 2
 - [OCSInventory-NG/OCSInventory-Loadtest-Rework](https://github.com/OCSInventory-NG/OCSInventory-Loadtest-Rework) · `Python` · 1 commit
 - [PluginsOCSInventory-NG/officepack](https://github.com/PluginsOCSInventory-NG/officepack) · `VBScript` · 1 commit
 
-<sub>Showing all 14 public repositories from 16 November 2025 through 16 November 2026; refreshed weekly.</sub>
+<sub>Showing all 14 public repositories from 23 November 2025 through 23 November 2026; refreshed weekly.</sub>
 <!-- recent-repositories:end -->
